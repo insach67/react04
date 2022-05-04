@@ -2,16 +2,32 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const Time=()=>{
+const time=new Date().toLocaleTimeString()
+return(<>
+   <h1 className='text'>Web App Clock</h1>
+<div className='container'>
+  <div className='inside_container'>
+  <h1 id='time'>Time:{time}</h1>
+  </div>
+
+</div>
+  
+  </>
+)
+}
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+setInterval(() => {
+  root.render(
+    <>
+      <App />
+      <Time/>
+    </>
+  );
+  
+}, 1000);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
